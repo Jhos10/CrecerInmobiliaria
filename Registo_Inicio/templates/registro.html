@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<h1>Registro de usuario</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="username">Ingrese el nombre de usuario</label>
+    <input type="text" name="username" required>
+
+    <label for="first_name">Ingrese su nombre</label>
+    <input type="text" name="first_name" required>
+
+    <label for="last_name">Ingrese su apellido</label>
+    <input type="text" name="last_name" required>
+
+    <label for="password">Ingrese la contraseña</label>
+    <input type="text" name="password" required>
+
+    <label for="passwordDos">Confirme la contraseña</label>
+    <input type="text" name="passwordDos" required>
+
+    <label for="email">Ingrese su correo electrónico</label>
+    <input type="email" name="email" required>
+
+    <input type="submit">
+</form>
