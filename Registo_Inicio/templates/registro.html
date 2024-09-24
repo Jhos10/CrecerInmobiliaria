@@ -1,6 +1,12 @@
+
+<!-- Carga el archivo css -->
 {% load static %}
+
+<!-- Etiqueta html para traer los estilos que se encuentra en la carpeta static -->
 <link rel="stylesheet" href="{% static 'styles.css' %}">
+<!-- Titulo de la pagina web -->
 <h1>Registro de usuario</h1>
+<!-- Formulario para registrar el usuario -->
 <form action="" method="POST">
     {% csrf_token %}
     <label for="username">Ingrese el nombre de usuario</label>
