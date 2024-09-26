@@ -1,7 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.cache import never_cache
 from django.http import HttpResponse
 # from django.db import connection
+# from .models import PublicacionInmobiliaria
 from django.db.models import Q
 # Create your views here.
 # Vista para registrar el usuario
@@ -24,7 +28,7 @@ def registroUsuario(request):
 
                 print(usuarios)
                 # Le genera un html con el siguiente mensaje
-                return HttpResponse("El usuario ya existe")
+                return redirect("inicioSesion")
             # Si no existe ninguno se crea un nuevo usuario
             else:
                 
@@ -41,6 +45,27 @@ def registroUsuario(request):
             print("El usuario no fue creado con exito")
             return HttpResponse("El usuario no pudo ser creado")
         
-
+# @csrf_protect
+@never_cache
 def inicioSesionUsuario(request):
-    pass
+    # pass
+    if request.method == "GET":
+        return render(request, 'inicioSesion.html')
+    else:
+        usuario = authenticate(username=request.POST["username"], password=request.POST["password"])
+
+        if usuario != None:
+            login(request, usuario)
+            print("El usuario se encuentra en la base de datos")
+            return redirect('perfilUsuario')
+        
+        else:
+            print("Usuario no esta en la base de datos")
+            return redirect('registro')
+            # login()
+
+def perfilUsuario(request):
+    usuario = request.user
+    return render(request, 'perfil.html', {
+        'usuario': usuario
+    })
