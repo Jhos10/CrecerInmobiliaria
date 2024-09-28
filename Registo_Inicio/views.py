@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from django.db.models import Q
 # Create your views here.
 # Vista para registrar el usuario
+@never_cache
 def registroUsuario(request):
     # Condicional para saber con que metodo esta interactuando el usuario
     if request.method == "GET":
@@ -63,6 +64,7 @@ def inicioSesionUsuario(request):
             print("Usuario no esta en la base de datos")
             return redirect('registro')
             # login()
+
 
 def perfilUsuario(request):
     usuario = request.user
