@@ -1,0 +1,8 @@
+
+{% for proyecto in proyectos %}
+<h1><a href="{% url 'proyecto' proyecto.id %}">{{proyecto.tituloProyecto}}</a></h1>
+<p>{{proyecto.precio}}</p>
+<p>{{proyecto.ubicacion}}</p>
+<p>{{proyecto.descripcion}}</p>
+<img src="{{ proyecto.proyectoImagenPrincipal.url }}" alt="">
+{% endfor %}

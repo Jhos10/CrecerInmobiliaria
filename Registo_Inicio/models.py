@@ -4,10 +4,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 # Cada modelo representa una tabla, cada vez que se instancia un modelo este
-
-
-
-
 # Entidad que representa la publicacion de una inmobiliaria.
 class PublicacionInmobiliaria(models.Model):
     # Atributo titulo
@@ -31,7 +27,10 @@ class PublicacionInmobiliaria(models.Model):
 class ImagenPublicacion(models.Model):
     publicacionInmobiliaria = models.ForeignKey(PublicacionInmobiliaria, on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to='static/images/')
-    
+
+class VideoPublicacion(models.Model):
+    publicacionInmobiliaria = models.ForeignKey(PublicacionInmobiliaria, on_delete=models.CASCADE)
+    imagen = models.FileField(upload_to='static/videosPublicaciones')
 
 class User_PublicacionInmobiliaria(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
