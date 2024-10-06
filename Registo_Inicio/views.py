@@ -34,19 +34,23 @@ def registroUsuario(request):
             else:
                 
                 # Se crea un nuevo usuario
-                nuevoUsuario = User.objects.create_user(username= request.POST["username"], 
+                User.objects.create_user(username= request.POST["username"], 
                 email = request.POST["email"], password = request.POST["password"], first_name = request.POST["first_name"], last_name = request.POST["last_name"])
                 #
                 print(usuarios)
+                # Revisa si el usuario esta autenticado, si lo esta devuelve una instancia con el usuario autenticado, si no esta autenticado devuelve un none
+                usuario = authenticate(username = request.POST["username"], password = request.POST["password"])
                 # Se muestra el html con un mensaje de usuario creado con exito
-                return HttpResponse("Usuario creado con exito")
+                # Crea una sesion con el usuario registrado, lo que genera una cookie con el cual la request del usuario va a tener la informacion de este.
+                login(request, usuario)
+                return redirect("perfilUsuario")
 
         else:
             # 
             print("El usuario no fue creado con exito")
             return HttpResponse("El usuario no pudo ser creado")
         
-# @csrf_protect
+
 @never_cache
 def inicioSesionUsuario(request):
     # pass
