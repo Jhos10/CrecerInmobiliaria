@@ -1,0 +1,41 @@
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from Registo_Inicio.models import PublicacionInmobiliaria, ImagenPublicacion
+from django.db.models import Q
+# Create your views here.
+
+def paginaPrincipal(request):
+    publicaciones = PublicacionInmobiliaria.objects.all()
+    # contexto = {"publicaciones": publicaciones}
+    if request.method == 'GET':
+        if not publicaciones:
+            print("Hola")
+            contexto = {"publicaciones": None}
+        else:
+            print("Inagresa el else")
+            contexto = {"publicaciones": publicaciones}
+        return render(request, "paginaPrincipal.html", contexto)
+    else:
+        if request.POST["Buscar"] != None:
+            listaDeBusqueda =PublicacionInmobiliaria.objects.filter(titulo__in = request.POST["titulo"].split(" "))
+            return render(request, 'publcacion.html', {"listaDeBusqueda": listaDeBusqueda})
+        else:
+            PublicacionInmobiliaria.objects.filter(Q(numeroDormitorios = request.POST["numeroDormitorios"]) | Q(tipoInmueble = request.POST["tipoInmueble"]) | Q(tamaño = request.POST["tamaño"]) | Q(precio_range = [request.POST["minimo"], request.POST["maximo"]]))
+
+def publicacion(request, idPublicacion):
+    try:
+        publicacion = PublicacionInmobiliaria.objects.get(id = idPublicacion)
+        imagenes = publicacion.imagenpublicacion_set.all()
+        # imagenes = list(map(lambda x: x.imagen.url, imagenes))
+        # imagenes += [publicacion.imagenPrincipal.url]
+        # print(imagenes)
+        # except
+
+        return render(request,'publicacion.html', {
+            'publicacion': publicacion,
+            'imagenes': imagenes
+        })
+    except PublicacionInmobiliaria.DoesNotExist:
+        return HttpResponse("La publicacion no existe")
+
+

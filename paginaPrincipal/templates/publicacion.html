@@ -1,0 +1,8 @@
+
+<h1>{{publicacion.titulo}}</h1>
+<p>{{publicacion.fecha}}</p>
+<p>{{publicacion.descripcion}}</p>
+<img width="100px" height="100px" src="{{ publicacion.imagenPrincipal.url }}" alt="">
+{% for imagen in imagenes %}
+  |<img width="100px" height="100px" src="{{ imagen.imagen.url }}" alt="">
+{% endfor %}

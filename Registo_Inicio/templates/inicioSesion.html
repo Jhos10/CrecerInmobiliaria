@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'inicioSesion.css' %}">
+<h1>Inicio de sesion</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="username">Ingrese el nombre del usuario</label>
+    <input type="text" name="username">
+    <label for="email">Ingrese el email del usuario</label>
+    <input type="text" name="email">
+    <label for="password">Ingrese la contraseña</label>
+    <input type="text" name="password">
+    <button type="submit">Iniciar Sesión</button>
+</form>
