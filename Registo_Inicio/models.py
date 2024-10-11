@@ -18,7 +18,7 @@ class PublicacionInmobiliaria(models.Model):
     precio = models.IntegerField(default=0)
     descripcion = models.TextField(default=0)
     imagenPrincipal = models.ImageField(upload_to='static/images/', default=None)
-    tipoInmueble = models.CharField(default=TipoInmueble.casa, choices=TipoInmueble.choices)
+    tipoInmueble = models.CharField(default=TipoInmueble.casa, choices=TipoInmueble.choices, max_length = 50)
     numeroCamas = models.IntegerField(default=0)
     numeroBaños = models.IntegerField(default=0)
     tamaño = models.IntegerField(default=0)

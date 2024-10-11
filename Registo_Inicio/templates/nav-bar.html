@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header class="Header">
+        <div class="logo">
+            <img src="../img/WhatsApp-Image-2020-01-23-at-11.13.23.jpeg" alt="Logo de la navbar">
+        </div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="{% url 'paginaPrincipal' %}">Inicio</a></li>
+                <li><a href="#">Inmuebles</a></li>
+                <li><a href="#">Proyectos</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Contactenos</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    <!-- Aqui va el html de la plantilla hija -->
+    {% endblock %}
+    <footer>
+    </footer>
+</body>
+</html>

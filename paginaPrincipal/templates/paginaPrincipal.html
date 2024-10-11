@@ -1,16 +1,16 @@
 
-<a href="{% url 'inicioSesion' %}">inicio de sesion</a>
-<a href="{% url 'vistaPrincipalProyectos' %}">proyectos</a>
-<a href="{% url 'sobreNosotros' %}">Sobre nosotros</a>
-{% if publicaciones !=  None %}
-  {% for publicacion in publicaciones %}
-  <div>
-    <h2><a href="{% url 'publicacion' publicacion.id %}">{{publicacion.titulo}}</a></h2>
-    <p>{{publicacion.fecha}}</p>
-    <p>{{publicacion.descripcion}}</p>
-    <img width="100px" height="100px" src= "{{ publicacion.imagenPrincipal.url }}" alt="">
-  </div>
-  {% endfor %}
-{% else %}
-  <p>No hay publicaciones disponibles</p>
-{% endif %}
+{% extends "nav-bar.html" %}
+{% block content%}
+  {% if publicaciones !=  None %}
+    {% for publicacion in publicaciones %}
+    <div>
+      <h2><a href="{% url 'publicacion' publicacion.id %}">{{publicacion.titulo}}</a></h2>
+      <p>{{publicacion.fecha}}</p>
+      <p>{{publicacion.descripcion}}</p>
+      <img width="100px" height="100px" src= "{{ publicacion.imagenPrincipal.url }}" alt="">
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>No hay publicaciones disponibles</p>
+  {% endif %}
+{% endblock %}
