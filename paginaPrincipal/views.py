@@ -14,11 +14,11 @@ def paginaPrincipal(request):
         else:
             print("Inagresa el else")
             contexto = {"publicaciones": publicaciones}
-        return render(request, "paginaPrincipal.html", contexto)
+        return render(request, "index.html", contexto)
     else:
         if request.POST["Buscar"] != None:
             listaDeBusqueda =PublicacionInmobiliaria.objects.filter(titulo__in = request.POST["titulo"].split(" "))
-            return render(request, 'publcacion.html', {"listaDeBusqueda": listaDeBusqueda})
+            return render(request, 'index.html', {"listaDeBusqueda": listaDeBusqueda})
         else:
             PublicacionInmobiliaria.objects.filter(Q(numeroDormitorios = request.POST["numeroDormitorios"]) | Q(tipoInmueble = request.POST["tipoInmueble"]) | Q(tamaño = request.POST["tamaño"]) | Q(precio_range = [request.POST["minimo"], request.POST["maximo"]]))
 
@@ -37,5 +37,16 @@ def publicacion(request, idPublicacion):
         })
     except PublicacionInmobiliaria.DoesNotExist:
         return HttpResponse("La publicacion no existe")
+
+
+def inmuebles(request):
+    publicacionesInmuebles = PublicacionInmobiliaria.objects.all()
+    print(publicacionesInmuebles)
+    if request.method == 'GET':
+        if not publicacionesInmuebles:
+            return render(request, 'inmuebles.html',{'publicaciones': None})
+        else:
+            return render(request, 'inmuebles.html',{'publicaciones': publicacionesInmuebles})
+
 
 

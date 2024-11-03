@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'Registo_Inicio',
     'paginaPrincipal',
     'Proyectos',
-    'otrasSecciones'
+    'otrasSecciones',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [

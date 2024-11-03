@@ -1,8 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styleproyectos.css' %}?v=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% for proyecto in proyectos %}
-<h1><a href="{% url 'proyecto' proyecto.id %}">{{proyecto.tituloProyecto}}</a></h1>
-<p>{{proyecto.precio}}</p>
-<p>{{proyecto.ubicacion}}</p>
-<p>{{proyecto.descripcion}}</p>
-<img src="{{ proyecto.proyectoImagenPrincipal.url }}" alt="">
-{% endfor %}
+</head>
+<body>
+    <header class="Header">
+        <div class="logo">
+            <a href="{% url 'paginaPrincipal' %}"><img src="../../static/imagenesWeb/WhatsApp-Image-2020-01-23-at-11.13.23.jpeg" alt="Logo de la navbar"></a>
+        </div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="{% url 'paginaPrincipal' %}">Inicio</a></li>
+                <li><a href="{% url 'inmuebles' %}">Inmuebles</a></li>
+                <li><a href="{% url 'vistaPrincipalProyectos' %}">Proyectos</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Contactenos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="section">
+      {% for proyecto in proyectos %}
+        <article class="section__proyect">
+            <a href="{% url 'proyecto' proyecto.id %}"><img src="{{proyecto.proyectoImagenPrincipal.url}}" alt=""</a>
+            <h2>{{proyecto.tituloProyecto}}</h2>
+        </article>
+      {% endfor %}
+      
+    </section>
+    </div>
+    <footer>
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2>Escríbanos</h2>
+            <form>
+              <div class="form-group">
+                <input type="text" placeholder="Nombre" required>
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="E-mail" required>
+                <input type="tel" placeholder="Teléfono" required>
+              </div>
+              <div class="form-group">
+                <textarea placeholder="Mensaje" required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+            <p>Nos pondremos en contacto lo más pronto posible</p>
+          </div>
+          
+        <div class="footer-container">
+          <img  src="../../static/imagenesWeb/WhatsApp-Image-2020-01-23-at-11.13.23.jpeg" sizes= "" alt="logo_footer">
+          <p>© Crecer Inmobiliaria. Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f" id="facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram" id="instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube" id="youtube"></i></a>
+        </div>
+    </div>
+
+</footer>
+      
+</body>
+</html>

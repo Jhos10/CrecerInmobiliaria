@@ -1,0 +1,80 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html >
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styleinmuebles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="Header">
+        <div class="logo">
+            <a href="index.html"><img src="../../static/imagenesWeb/WhatsApp-Image-2020-01-23-at-11.13.23.jpeg" alt="Logo de la navbar"></a>
+        </div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="{% url 'paginaPrincipal' %}">Inicio</a></li>
+                <li><a href="{% url 'inmuebles' %}" id="Inmuebles">Inmuebles</a></li>
+                <li><a href="{% url 'vistaPrincipalProyectos' %}">Proyectos</a></li>
+                <li><a href="Contactenos.html">Contactenos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="Fondo">
+        <a href="index.html" id="Inicio"><h3>Inicio </h3></a>
+        <h3 id="n"> > Inmuebles</h3>
+    </div>
+    {% for publicacion in publicaciones %}  
+      <div class="property-card">
+          <div class="property-image">
+            <a href="#"><img src="{{publicacion.imagenPrincipal.url}}" alt="Imagen de la propiedad"></a>
+          </div>
+          <div class="property-details">
+              <h3 class="property-title">APTO/CASA {{publicacion.titulo}}</h3>
+              <div class="property-features">
+                  <span>INFO CAMAS {{publicacion.numeroCamas}}</span> 
+                  <span>INFO BAÑOS {{publicacion.numeroBaños}}</span> 
+                  <span>INFO PIES  {{publicacion.tamaño|intcomma}}</span>
+              </div>
+              <p class="property-price">PRECIO {{publicacion.precio|intcomma}}</p>
+          </div>
+      </div>
+    {% endfor %}
+<footer>
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2>Escríbanos</h2>
+            <form>
+              <div class="form-group">
+                <input type="text" placeholder="Nombre" required>
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="E-mail" required>
+                <input type="tel" placeholder="Teléfono" required>
+              </div>
+              <div class="form-group">
+                <textarea placeholder="Mensaje" required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+            <p>Nos pondremos en contacto lo más pronto posible</p>
+          </div>
+          
+        <div class="footer-container">
+          <img src="../../static/imagenesWeb/WhatsApp-Image-2020-01-23-at-11.13.23.jpeg" alt="logo_footer">
+          <p>© Crecer Inmobiliaria. Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f" id="facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram" id="instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube" id="youtube"></i></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
