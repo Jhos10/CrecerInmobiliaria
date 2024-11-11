@@ -21,7 +21,7 @@
                 <li><a href="{% url 'paginaPrincipal' %}">Inicio</a></li>
                 <li><a href="{% url 'inmuebles' %}" id="Inmuebles">Inmuebles</a></li>
                 <li><a href="{% url 'vistaPrincipalProyectos' %}">Proyectos</a></li>
-                <li><a href="Contactenos.html">Contactenos</a></li>
+                <li><a href="{% url 'contactenos' %}">Contactenos</a></li>
             </ul>
         </nav>
     </header>
@@ -32,7 +32,7 @@
     {% for publicacion in publicaciones %}  
       <div class="property-card">
           <div class="property-image">
-            <a href="#"><img src="{{publicacion.imagenPrincipal.url}}" alt="Imagen de la propiedad"></a>
+            <a href="{% url 'publicacion' publicacion.id %}"><img src="{{publicacion.imagenPrincipal.url}}" alt="Imagen de la propiedad"></a>
           </div>
           <div class="property-details">
               <h3 class="property-title">APTO/CASA {{publicacion.titulo}}</h3>

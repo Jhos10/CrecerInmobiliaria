@@ -1,0 +1,345 @@
+
+html{
+    font-family: "Nunito" sans-serif;
+  }
+
+* {
+box-sizing: border-box;
+font-family: "Nunito", sans-serif;
+margin: 0;
+padding: 0;   
+}
+
+header{
+background-color: white;
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 60px;
+padding: 50px 15%;
+font-size: 20px;
+}
+.Header .logo {
+margin-bottom: 40px;
+cursor: pointer;
+padding: 50px 0 0 0;
+}
+
+header .logo img {
+height: 90px;
+width: auto;
+transition: all 0.3s;
+}
+
+header .logo img:hover{
+transform: scale(1.1);
+}
+
+.nav_links{
+/* display: flex; */
+margin-bottom: 40px;
+list-style: none;
+padding: 50px 0 0 0;
+}
+
+.Header .nav_links li {
+display: inline-block;
+padding: 0 20px;
+transition: all 0.4s;
+}
+
+.Header .nav_links li:hover{
+transform: scale(1.2);
+}
+
+a {
+font-size: 700;
+color:darkslategrey;
+text-decoration: none;
+transition:  all 0.2s ease;
+}
+
+a:hover{
+color: red;
+}
+
+.div {
+background-color: whitesmoke;
+}
+
+.div h1{
+text-align: center;
+color: #3d3d3d;
+}
+
+#Inmuebles{
+color: red;
+}
+
+footer {
+background-color: #f9f9f9;
+padding: 20px 0;
+text-align: center;
+color: #333;
+}
+
+.footer-container {
+margin-bottom: 10px;
+}
+
+.footer-container p {
+margin: 5px 0;
+font-size: 14px;
+}
+
+.footer-container a {
+color: #d32f2f;
+text-decoration: none;
+}
+
+.footer-social a {
+margin: 0 10px;
+color: #333;
+font-size: 20px;
+}
+
+#facebook{
+transition: all 0.5s ease;
+}
+
+#facebook:hover{
+color: blue;
+}
+
+#instagram{
+transition: all 0.5s ease;
+}
+
+#instagram:hover{
+color: #d91cbc;
+}
+
+#youtube{
+transition: all 0.5s ease;
+}
+
+#youtube:hover{
+color: red;
+}
+
+
+.footer-container img{
+margin: 0 auto;
+width: 200px;
+}
+
+.contact-container {
+display: flex;
+justify-content: space-between;
+align-items:center;
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+.contact-form {
+margin: 0 auto;
+max-width: 500px;
+padding: 20px;
+background-color: #f9f9f9;
+border-radius: 8px;
+font-family: "Nunito", sans-serif;
+}
+
+.contact-form h2 {
+font-size: 24px;
+color: #333;
+margin-bottom: 20px;
+text-align: left;
+}
+
+.contact-form .form-group {
+display: flex;
+flex-direction: column;
+margin-bottom: 15px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-size: 14px;
+margin-bottom: 10px;
+}
+
+.contact-form .form-group input::placeholder,
+.contact-form .form-group textarea::placeholder {
+color: #999;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+border-color:#333;
+}
+
+.contact-form .form-group textarea {
+resize: none;
+height: 100px;
+}
+
+.contact-form button.btn-submit {
+width: 100%;
+padding: 12px;
+background-color: #d32f2f;
+border: none;
+color: #fff;
+font-size: 16px;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.contact-form button.btn-submit:hover {
+background-color: #b71c1c;
+}
+
+.contact-form p {
+margin-top: 10px;
+font-size: 14px;
+color: #666;
+text-align: center;
+}
+
+.property-card {
+display: flex;
+margin: 0 auto;
+margin-top: 20px;
+margin-bottom: 20px;
+width: 800px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+}
+
+.property-image {
+width: 40%;
+}
+
+.property-image:hover{
+cursor: pointer;
+}
+
+.property-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.property-details {
+padding: 15px;
+width: 60%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.property-title {
+font-size: 18px;
+font-weight: bold;
+margin: 0;
+}
+.property-features {
+font-size: 14px;
+color: #555;
+margin: 10px 0;
+}
+.property-features span {
+margin-right: 15px;
+}
+.property-price {
+font-size: 24px;
+color: red;
+font-weight: bold;
+margin: 0;
+}
+
+.Fondo{
+display: flex;
+flex-direction: row;
+background: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Frutaviajera.seguroparaviaje.com%2Fcuando-se-celebra-la-fundacion-de-pereira%2F&psig=AOvVaw1KoGAttE8wGAoSegC-sfEC&ust=1730772912828000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPjg_NbNwYkDFQAAAAAdAAAAABAJ) center/cover no-repeat;
+text-align: center;
+height: 25vh;
+margin-top: 5px;
+justify-content: center;
+align-items: center;
+}
+
+.Fondo h3 {
+color: #CAD2C5;
+}
+
+.Fondo a{
+color: #CAD2C5;
+opacity: 0.7;
+}
+
+
+.Fondo a:hover {
+text-decoration: underline;
+opacity: 1;
+color: #CAD2C5;
+}
+
+.Section {
+   max-width: 1500px;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap; 
+   color: red;
+   gap: 0px 0px;
+   justify-content: center;
+}
+
+.Section__contenedor {
+    flex-grow: 1;
+    flex-basis: 0px;
+    text-align: center;
+    max-width: 350px;
+    
+}
+
+.Section__imagen {
+    object-fit: cover;
+    max-width: 80%;
+    height: 200px;
+}
+
+@media screen and (max-width:700px){
+    .Section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .Section__contenedor {
+        max-width: 100vw;
+        flex-grow: 1;
+        flex-basis: 0;
+        flex-shrink: 1;
+        min-width: 50vw;
+        /* min-width: 100vw; */
+
+    }
+
+    .Section__imagen {
+        object-fit: cover;
+        max-width: 100vw;
+    }
+}
+
+
+
+
+  
+  
+  

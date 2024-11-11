@@ -147,7 +147,7 @@ h2 {
 }
 
 .search-btn:hover{
-  background-color: #E00000;
+  background-color: black;
 }
 
 
@@ -354,12 +354,15 @@ footer {
 .property-card {
   display: flex;
   margin: 0 auto;
+  margin-top: 20px;
   margin-bottom: 20px;
-  width: 800px;
+  max-width: 800px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  max-height: 250px;
+  min-height: 250px;
 }
 
 .property-image {
@@ -375,7 +378,6 @@ footer {
   height: 100%;
   object-fit: cover;
 }
-
 .property-details {
   padding: 15px;
   width: 60%;
@@ -383,28 +385,25 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
-
 .property-title {
   font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
-
 .property-features {
   font-size: 14px;
   color: #555;
   margin: 10px 0;
 }
-
 .property-features span {
   margin-right: 15px;
 }
-
 .property-price {
   font-size: 24px;
   color: red;
   font-weight: bold;
   margin: 0;
 }
+
 
 
