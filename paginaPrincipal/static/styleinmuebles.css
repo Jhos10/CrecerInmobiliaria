@@ -292,7 +292,80 @@ footer {
 }
 
 
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  header {
+    padding: 20px 10%;
+  }
+
+  .nav_links li {
+    padding: 0 10px;
+  }
+
+  section article img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .div h1 {
+    padding-top: 150px;
+  }
+
+  .search-container {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .property-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+  }
 
 
+}
+
+/* Tabletas */
+@media (max-width: 1024px) {
+  header {
+    padding: 30px 10%;
+  }
+
+  section article img {
+    width: 100%;
+  }
+
+  .div h1 {
+    padding-top: 250px;
+  }
+
+  .search-container {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  
+}
 
 

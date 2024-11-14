@@ -21,47 +21,57 @@
                 <li><a href="{% url 'paginaPrincipal' %}">Inicio</a></li>
                 <li><a href="{% url 'inmuebles' %}" id="Inmuebles">Inmuebles</a></li>
                 <li><a href="{% url 'vistaPrincipalProyectos' %}">Proyectos</a></li>
-                <li><a href="Contactenos.html">Contactenos</a></li>
+                <li><a href="{% url 'contactenos' %}">Contactenos</a></li>
             </ul>
         </nav>
     </header>
     <article class="Articulo">
-      <section>
-        <div class="Contenedor__imagen contenedor--imagenPrincipasl">
+      <section class="Section-imagen">
+        <div class="Contenedor__imagen contenedor--imagenPrincipal">
           <img src="{{publicacion.imagenPrincipal.url}}" class="Section__imagen imagen--principal" alt="">
         </div>
-        <div class="Contenedor__imagen contenedor--imagenesPrincipaless">
+        <div class="Contenedor__imagen contenedor--imagenesSecundarias">
           {% for imagen in imagenes %}
             <img src="{{imagen.imagen.url}}" class="Section__imagen imagen--segundaria" alt="">
           {% endfor %}
         </div>
       </section>
-      <h2 class="Section__subtitulo subtitulo--aparte">Lo esencial</h2>
+      <!-- <h2 class="Section__subtitulo subtitulo--aparte">Lo esencial</h2> -->
       <section class="Section__loesencial">
+        <div class="title-container">
+          <h2 class="title">Lo esencial</h2>
+          <hr class="title-line">
+        </div>
+      
         <div class="container__text">
-          <p class="Section__texto">Baños:{{publicacion.numeroBaños}}</p>
+          <p class="Section__texto">Baños: {{publicacion.numeroBaños}}</p>
         </div>        
         <div class="container__text">
-          <p class="Section__texto">Tipo:{{publicacion.tipoInmueble}}</p>
+          <p class="Section__texto">Tipo: {{publicacion.tipoInmueble}}</p>
         </div>
         <div class="container__text">
-          <p class="Section__texto">Pisos:{{publicacion.numeroPisos}}</p>
+          <p class="Section__texto">Pisos: {{publicacion.numeroPisos}}</p>
         </div>
         <div class="container__text">
-          <p class="Section__texto">Dormitorios:{{publicacion.numeroDormitorios}}</p>
+          <p class="Section__texto">Dormitorios: {{publicacion.numeroDormitorios}}</p>
         </div>
         <div class="container__text">
           <p class="Section__texto">Área: {{publicacion.tamaño}}</p>
         </div>
-
-      </section>
+      </section>           
       <section class="Section__description">
-        <h2 class="Section__subtitulo">Descripción</h2>
+        <div class="title-container">
+          <h2 class="title">Descripción</h2>
+          <hr class="title-line">
+        </div>
         <p class="Section__parrafo">{{publicacion.descripcion}}</p>
       </section>
       <section class="Section__consultar">
         {% csrf_token %}
-        <h2 class="Section__subtitulo">Preguntele a un agente sobre esta casa</h2>
+        <div class="title-container">
+          <h2 class="title">Preguntele a un agente sobre esta casa</h2>
+          <hr class="title-line">
+        </div>
       </form>
     </section>
     <form class="Section__formulario" action="" method="POST">
@@ -73,7 +83,7 @@
       <input type="text">
       <label for="">Mensaje</label>
       <input type="text">
-      <input type="submit">
+      <input type="submit" value="SOLICITAR INFORMACION" class="Especial">
     </article>
 
 <footer>

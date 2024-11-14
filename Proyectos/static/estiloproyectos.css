@@ -333,7 +333,7 @@ color: #CAD2C5;
 
     .Section__imagen {
         object-fit: cover;
-        max-width: 100vw;
+        min-width: 100vw;
     }
 }
 
