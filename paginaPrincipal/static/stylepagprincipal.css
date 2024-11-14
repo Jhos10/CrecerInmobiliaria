@@ -144,6 +144,7 @@ h2 {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   transition: all 1s ease;
+  color: white;
 }
 
 .search-btn:hover{
@@ -481,3 +482,91 @@ footer {
     flex-direction: column;
   }
 }
+
+.property-type input[type="checkbox"]:checked + label {
+  border-color: #43B07E;
+  color: #43B07E;
+}
+
+.property-type  input[type="checkbox"]:checked + label::before{
+  content: "✔";
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  color: #43B07E;
+}
+
+.property-type input[type="checkbox"] {
+  display: none;
+}
+
+.property-type label {
+  position: relative;
+  display: inline-block;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.bedrooms input[type="checkbox"]:checked + label {
+  border-color: #43B07E;
+  color: #43B07E;
+}
+
+.bedrooms  input[type="checkbox"]:checked + label::before{
+  content: "✔";
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  color: #43B07E;
+}
+
+.bedrooms input[type="checkbox"] {
+  display: none;
+}
+
+.bedrooms label {
+  position: relative;
+  display: inline-block;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.Baños input[type="checkbox"]:checked + label {
+  border-color: #43B07E;
+  color: #43B07E;
+}
+
+.Baños input[type="checkbox"]:checked + label::before{
+  content: "✔";
+  position: absolute;
+  left: 2px;
+  top: 7px;
+  color: #43B07E;
+}
+
+.Baños input[type="checkbox"] {
+  display: none;
+}
+
+.Baños label {
+  position: relative;
+  display: inline-block;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+

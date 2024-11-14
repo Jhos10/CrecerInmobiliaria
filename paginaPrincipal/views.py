@@ -17,13 +17,16 @@ def paginaPrincipal(request):
             contexto = {"publicaciones": publicaciones}
         return render(request, "index.html", contexto)
     else:
+        print('Hola')
         print(request)
         if request.POST["Buscar"] != None:
             listaDeBusqueda =PublicacionInmobiliaria.objects.filter(titulo__in = request.POST["Buscar"])
             idPublicacion = PublicacionInmobiliaria.objects.get(titulo = request.POST["Buscar"]).id
             return publicacion(request,idPublicacion)
         else:
-            PublicacionInmobiliaria.objects.filter(Q(numeroDormitorios = request.POST["numeroDormitorios"]) | Q(tipoInmueble = request.POST["tipoInmueble"]) | Q(tamaño = request.POST["tamaño"]) | Q(precio_range = [request.POST["minimo"], request.POST["maximo"]]))
+            print('Ingresa en el else del else')
+            print(request)
+            # PublicacionInmobiliaria.objects.filter(Q(numeroDormitorios = request.POST["numeroDormitorios"]) | Q(tipoInmueble = request.POST["tipoInmueble"]) | Q(tamaño = request.POST["tamaño"]) | Q(precio_range = [request.POST["minimo"], request.POST["maximo"]]))
 
 def publicacion(request, idPublicacion):
     try:
