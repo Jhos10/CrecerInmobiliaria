@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'stylepagprincipal.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crecer Inmobiliaria | Inmuebles de confianza</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
                 <li><a href="{% url 'paginaPrincipal' %}">Inicio</a></li>
                 <li><a href="{% url 'inmuebles' %}">Inmuebles</a></li>
                 <li><a href="{% url 'vistaPrincipalProyectos' %}">Proyectos</a></li>
-                <li><a href="Contactenos.html">Contactenos</a></li>
+                <li><a href="{% url 'contactenos' %}">Contactenos</a></li>
             </ul>
         </nav>
     </header>
@@ -35,22 +36,24 @@
 
     <div class="search-container">
         <h2>Buscar Inmuebles</h2>
-        <form action="#" method="get">
+        <form action="#" method="POST">
+            {% csrf_token %}
             <div class="input-group">
-                <input type="text" placeholder="Dirección, Ciudad, Código Postal" class="search-bar">
-                <button type="submit" class="search-btn">
+                <input type="text" placeholder="Nombre de la publicacion" class="search-bar" value="0" name="Buscar">
+                <!-- <button type="submit" class="search-btn">
                     <p id="Boton_buscar"><i class="fa-solid fa-magnifying-glass"></i></p>
-                </button>
+                </button> -->
+                <input type="submit" class="search-btn">
             </div>
             
             <div class="filters">
                 <div class="filter">
                     <label for="min-price">Precio</label>
                     <select id="min-price">
-                        <option value="">Mínimo</option>
+                        <option name="precio_minimo">Mínimo</option>
                     </select>
-                    <select id="max-price">
-                        <option value="">Máx.</option>
+                    <select id="max-price" name="precio_maximo">
+                        <option>Máx.</option>
                     </select>
                 </div>
 
@@ -78,7 +81,10 @@
                 <div class="filter">
                     <label>Tipo</label>
                     <div class="property-type">
-                        <input type="button" value="Apartamento" class="type-btn">
+                        <div class="prueba type-btn">
+                            <input type="checkbox" value="Apartamento" class="type-btn" name="Departamento">
+                            Departamento
+                        </div>
                         <input type="button" value="Casa" class="type-btn">
                     </div>
                 </div>
@@ -117,8 +123,8 @@
     </div>
     {% for publicacion in publicaciones %}
         <div class="property-card">
-                <div class="property-image">
-                <a href="#"><img src="{{publicacion.imagenPrincipal.url}}" alt="Imagen de la propiedad"></a>
+            <div class="property-image">
+                <a href="{% url 'publicacion' publicacion.id %}"><img src="{{publicacion.imagenPrincipal.url}}" alt="Imagen de la propiedad"></a>
             </div>
             <div class="property-details">
                 <h3 class="property-title">{{publicacion.titulo}}</h3>

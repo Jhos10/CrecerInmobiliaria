@@ -1,0 +1,89 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html >
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'contactenos.css' %}?v=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    <header class="Header">
+        <div class="logo">
+            <a href="index.html"><img src="../../static/imagenesWeb/WhatsApp-Image-2020-01-23-at-11.13.23.jpeg" alt="Logo de la navbar"></a>
+        </div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="{% url 'paginaPrincipal' %}">Inicio</a></li>
+                <li><a href="{% url 'inmuebles' %}" id="Inmuebles">Inmuebles</a></li>
+                <li><a href="{% url 'vistaPrincipalProyectos' %}">Proyectos</a></li>
+                <li><a href="{% url 'contactenos' %}">Contactenos</a></li>
+            </ul>
+        </nav>
+    </header>
+  <article class="Articulo">
+    <section class="Articulo__seccion">
+      <div class="Articulo__contendor Articulo--principalTitulo">
+        <h1 class="Articulo__titulo">Tenemos amplia experiencia en el sector inmobiliario, contáctenos, no se arrepentirá</h1>
+      </div>
+      <div class="ContendorSubcontenido">
+        <p class="ContendorSubcontenido--modificaSubtitulo">Estamos ubicados en la Perla del otún, Pereria | Colombia</p>
+        <div class="ContendorSubcontenido Contenedor--Terciario">
+          <div>
+            <p>
+              (57) (6) 313 36 57
+              +57 301 270 05 18
+              info@inmocrecer.com
+            </p>
+          </div>
+          <div>
+            <p>
+              CR 13 #14 - 60, Centro comercial Marbella Local 208
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d417.90159543258034!2d-75.69153243283701!3d4.809097481760829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38874767bb96ad%3A0xa5d780ba5b0c7db1!2sMarbella%20Centro%20Comercial!5e0!3m2!1ses!2sco!4v1730848776586!5m2!1ses!2sco"style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </article>
+  <footer>
+      <div class="contact-container">
+          <div class="contact-form">
+              <h2>Escríbanos</h2>
+              <form>
+                <div class="form-group">
+                  <input type="text" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" placeholder="E-mail" required>
+                  <input type="tel" placeholder="Teléfono" required>
+                </div>
+                <div class="form-group">
+                  <textarea placeholder="Mensaje" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar</button>
+              </form>
+              <p>Nos pondremos en contacto lo más pronto posible</p>
+            </div>
+            
+          <div class="footer-container">
+            <img src="../../static/imagenesWeb/WhatsApp-Image-2020-01-23-at-11.13.23.jpeg" alt="logo_footer">
+            <p>© Crecer Inmobiliaria. Todos los derechos reservados.</p>
+          </div>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f" id="facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram" id="instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube" id="youtube"></i></a>
+          </div>
+      </div>
+  </footer>
+</body>
+</html>

@@ -11,6 +11,7 @@ class Proyect(models.Model):
   logo = models.ImageField(default="No tiene icono", upload_to='static/proyectoImages/')
   acabados = models.TextField(max_length=500,default='No tiene descripcion')
 
+
   # Metodo str para ver el titulo del proyecto en la consola y en el panel de admin
   def __str__(self) -> str:
     return self.tituloProyecto

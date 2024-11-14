@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from Registo_Inicio.models import PublicacionInmobiliaria, ImagenPublicacion
 from django.db.models import Q
+from django.views.decorators.cache import never_cache
 # Create your views here.
-
+# @never_cache
 def paginaPrincipal(request):
     publicaciones = PublicacionInmobiliaria.objects.all()
     # contexto = {"publicaciones": publicaciones}
@@ -16,9 +17,11 @@ def paginaPrincipal(request):
             contexto = {"publicaciones": publicaciones}
         return render(request, "index.html", contexto)
     else:
+        print(request)
         if request.POST["Buscar"] != None:
-            listaDeBusqueda =PublicacionInmobiliaria.objects.filter(titulo__in = request.POST["titulo"].split(" "))
-            return render(request, 'index.html', {"listaDeBusqueda": listaDeBusqueda})
+            listaDeBusqueda =PublicacionInmobiliaria.objects.filter(titulo__in = request.POST["Buscar"])
+            idPublicacion = PublicacionInmobiliaria.objects.get(titulo = request.POST["Buscar"]).id
+            return publicacion(request,idPublicacion)
         else:
             PublicacionInmobiliaria.objects.filter(Q(numeroDormitorios = request.POST["numeroDormitorios"]) | Q(tipoInmueble = request.POST["tipoInmueble"]) | Q(tamaño = request.POST["tamaño"]) | Q(precio_range = [request.POST["minimo"], request.POST["maximo"]]))
 

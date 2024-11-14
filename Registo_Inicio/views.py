@@ -12,6 +12,7 @@ from django.db.models import Q
 @never_cache
 def registroUsuario(request):
     # Condicional para saber con que metodo esta interactuando el usuario
+    print(request.POST)
     if request.method == "GET":
         # Carga el html si el usuario ingresa atraves del metodo get
         return render(request,"registro.html")

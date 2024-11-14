@@ -23,6 +23,7 @@ class PublicacionInmobiliaria(models.Model):
     numeroBaños = models.IntegerField(default=0)
     tamaño = models.IntegerField(default=0)
     numeroDormitorios = models.IntegerField(default=0)
+    ciudad = models.CharField(max_length=30, default='No tiene')
 
     # Metodo magico para mostrar el titulo
     def __str__(self) -> str:
